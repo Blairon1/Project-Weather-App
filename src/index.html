@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <script src="index.js" refer></script>
   </head>
   <body>
-    <p>Hello World!</p>
-    <div>HELLO WORLD!</div>
+    <div class="home-page-wrapper">
+      <div class="home-page">
+        <form id="weather-task-form">
+          <label for="city-input" id="city-label"> Weather App </label>
+          <input
+            type="text"
+            placeholder="Please enter a city..."
+            id="city-input"
+            name="citySelected"
+            minlength="1"
+            maxlength="169"
+            required
+          />
+        </form>
+      </div>
+    </div>
   </body>
 </html>
