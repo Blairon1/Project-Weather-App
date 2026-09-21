@@ -4,10 +4,6 @@
 const weatherCityInput = document.querySelector("#city-input");
 
 /*
-// States
-*/
-
-/*
 // Implementation
 */
 
