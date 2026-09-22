@@ -82,6 +82,7 @@ dialog {
 #weather-display-left {
   display: grid;
   grid-template-rows: 100px auto 1fr;
+  margin-right: 32px;
   margin-bottom: 32px;
 }
 
@@ -121,6 +122,7 @@ dialog {
 #weather-display-right {
   display: grid;
   grid-template-rows: auto 1fr;
+  margin-left: 32px;
   margin-bottom: 32px;
 }
 

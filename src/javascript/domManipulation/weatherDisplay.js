@@ -4,7 +4,6 @@ const homePage = document.querySelector(".home-page");
 // Implementation
 
 function getWeatherIcon(dayConditions) {
-  console.log(dayConditions);
   if (
     dayConditions == "clear-day" ||
     dayConditions == "clear-night" ||
@@ -50,7 +49,7 @@ function getWeatherIcon(dayConditions) {
 
 function toggleTemperatureScales() {}
 
-export default function updateWeatherDisplay(weatherData) {
+export function updateWeatherDisplay(weatherData, fetchWeatherData) {
   homePage.replaceChildren();
 
   const weatherWebpageWrapper = document.createElement("div");
@@ -66,7 +65,7 @@ export default function updateWeatherDisplay(weatherData) {
   const weatherSearchInput = document.createElement("input");
   weatherSearchInput.className = "weather-search-input";
   weatherSearchInput.type = "text";
-  weatherSearchInput.placeholder = "Please enter a city...";
+  weatherSearchInput.placeholder = "Please enter a location...";
   weatherSearchInput.minLength = "1";
   weatherSearchInput.maxLength = "169";
   weatherSearchInput.required = true;
@@ -236,7 +235,7 @@ export default function updateWeatherDisplay(weatherData) {
     dailyWeatherContainer.className = "daily-weather-containers";
 
     const weatherIcon = document.createElement("img");
-    weatherIcon.src = `${icon}`;
+    weatherIcon.src = icon;
     weatherIcon.alt = "Weather Icon";
     weatherIcon.className = "weather-icon";
 
@@ -274,9 +273,10 @@ export default function updateWeatherDisplay(weatherData) {
     event.preventDefault();
 
     const city = weatherSearchInput.value.trim();
+
     if (city.length > 0) {
       const newWeatherData = await fetchWeatherData(city);
-      updateWeatherDisplay(newWeatherData);
+      updateWeatherDisplay(newWeatherData, fetchWeatherData);
     }
   });
 }

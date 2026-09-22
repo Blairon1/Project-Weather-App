@@ -1,9 +1,9 @@
-import updateWeatherDisplay from "../domManipulation/weatherDisplay.js";
+import { updateWeatherDisplay } from "../domManipulation/weatherDisplay.js";
 
 /*
 // References 
 */
-const weatherCityInput = document.querySelector("#city-input");
+const weatherLocationInput = document.querySelector("#location-input");
 
 /*
 // Implementation
@@ -27,8 +27,8 @@ async function fetchWeatherData(city) {
   }
 }
 
-// User presses enter after typing in a city
-weatherCityInput.addEventListener("keydown", async (event) => {
+// User presses enter after typing in a location
+weatherLocationInput.addEventListener("keydown", async (event) => {
   if (event.key === "Enter" && event.target.value.length > 0) {
     event.preventDefault();
 
@@ -40,6 +40,6 @@ weatherCityInput.addEventListener("keydown", async (event) => {
     //   console.log(acquiredWeatherData.days[0].datetime);
     // }, 4000);
 
-    updateWeatherDisplay(acquiredWeatherData);
+    updateWeatherDisplay(acquiredWeatherData, fetchWeatherData);
   }
 });
