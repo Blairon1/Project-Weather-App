@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Average+Sans&family=Carter+One&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+}
+
+dialog {
+  background-image: url(../assets/icons/homepageBackground.avif);
+  height: 70vh;
+  width: 100%;
+}
+
+#weather-webpage-wrapper {
+  display: grid;
+  grid-template-rows: 200px 1fr;
+  padding: 0px 250px;
+}
+
+#header-searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 32px;
+}
+
+#weather-task-form,
+.searchBar {
+  width: auto;
+  height: auto;
+}
+
+#weather-display-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 3fr 1fr;
+}
+
+#weather-display-left {
+  display: grid;
+  grid-template-rows: 100px auto 1fr;
+  margin-bottom: 32px;
+}
+
+.current-date {
+  font-family: "Charis SIL", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.city-name {
+  font-family: "Charis SIL", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+}
+
+#weather-description {
+  font-family: "Average Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 24px;
+}
+
+#current-date-temperature {
+  font-size: 64px;
+  font-family: "Carter One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#daily-weather-section {
+  grid-column: 1 / -1;
+}
+
+#weather-display-right {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  margin-bottom: 32px;
+}
+
+.weather-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100px;
+}
+
+#weather-body-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#current-date-weather-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#current-date-weather-icon {
+  width: 100px;
+  height: 100px;
+}
+
+#weather-body-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.weather-info-tab {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-info-text {
+  font-family: "Average Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 24px;
+}
+
+#daily-weather-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.daily-weather-containers {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-icon {
+  width: 75px;
+  height: 75px;
+  display: block;
+}

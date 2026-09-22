@@ -20,7 +20,117 @@
             required
           />
         </form>
+        <img src="assets/sun.svg" alt="Icon" />
       </div>
     </div>
+
+    <dialog open="" style="width: 100%; height: 100%">
+      <div id="weather-webpage-wrapper">
+        <div id="header-searchbar">
+          <form id="weather-task-form" class="searchBar">
+            <input
+              type="text"
+              placeholder="Please enter a city..."
+              id="city-input"
+              name="citySelected"
+              minlength="1"
+              maxlength="169"
+              required
+            />
+          </form>
+        </div>
+        <div id="weather-display-wrapper">
+          <div id="weather-display-left">
+            <div class="weather-header">
+              <p class="current-date">Monday, September 21</p>
+              <p class="city-name">Toronto, ON</p>
+            </div>
+            <div id="current-date-weather-icon-container">
+              <img
+                src="assets/icons/cloudy.svg"
+                alt="Weather Icon"
+                id="current-date-weather-icon"
+              />
+            </div>
+            <div class="weather-display-body" id="weather-body-left">
+              <p id="weather-description">Clear Skies</p>
+              <p id="current-date-temperature">25oC</p>
+            </div>
+          </div>
+          <div id="weather-display-right">
+            <div class="weather-header">
+              <p class="current-date">Monday, September 21</p>
+              <p class="city-name">Toronto, ON</p>
+            </div>
+            <div class="weather-display-body" id="weather-body-right">
+              <div class="weather-info-tab">
+                <p class="weather-info-text">Wind</p>
+                <p class="weather-info-text">TBA</p>
+              </div>
+              <div class="weather-info-tab">
+                <p class="weather-info-text">Humidity</p>
+                <p class="weather-info-text">TBA</p>
+              </div>
+              <div class="weather-info-tab">
+                <p class="weather-info-text">Sunset</p>
+                <p class="weather-info-text">TBA</p>
+              </div>
+              <div class="weather-info-tab">
+                <p class="weather-info-text">Sunrise</p>
+                <p class="weather-info-text">TBA</p>
+              </div>
+              <div class="weather-info-tab">
+                <p class="weather-info-text">Precipitation probability</p>
+                <p class="weather-info-text">TBA</p>
+              </div>
+            </div>
+          </div>
+          <div id="daily-weather-section">
+            <div class="daily-weather-containers">
+              <img src="assets/night.svg" alt="Icon" class="weather-icon" />
+              <p class="days">Tue</p>
+              <p class="min-temp">25</p>
+              <p class="max-temp">30</p>
+            </div>
+            <div class="daily-weather-containers">
+              <img src="assets/icons/day.svg" alt="Icon" class="weather-icon" />
+              <p class="days">Wed</p>
+              <p class="min-temp">25</p>
+              <p class="max-temp">30</p>
+            </div>
+            <div class="daily-weather-containers">
+              <img src="assets/icons/day.svg" alt="Icon" class="weather-icon" />
+              <p class="days">Thu</p>
+              <p class="min-temp">25</p>
+              <p class="max-temp">25</p>
+            </div>
+            <div class="daily-weather-containers">
+              <img src="assets/icons/day.svg" alt="Icon" class="weather-icon" />
+              <p class="days">Fri</p>
+              <p class="min-temp">25</p>
+              <p class="max-temp">30</p>
+            </div>
+            <div class="daily-weather-containers">
+              <img src="assets/icons/day.svg" alt="Icon" class="weather-icon" />
+              <p class="days">Sat</p>
+              <p class="min-temp">25</p>
+              <p class="max-temp">30</p>
+            </div>
+            <div class="daily-weather-containers">
+              <img src="assets/icons/day.svg" alt="Icon" class="weather-icon" />
+              <p class="days">Sun</p>
+              <p class="min-temp">25</p>
+              <p class="max-temp">30</p>
+            </div>
+            <div class="daily-weather-containers">
+              <img src="assets/icons/day.svg" alt="Icon" class="weather-icon" />
+              <p class="days">Mon</p>
+              <p class="min-temp">25</p>
+              <p class="max-temp">30</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
