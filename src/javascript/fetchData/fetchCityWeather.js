@@ -1,3 +1,5 @@
+import updateWeatherDisplay from "../domManipulation/weatherDisplay.js";
+
 /*
 // References 
 */
@@ -38,6 +40,6 @@ weatherCityInput.addEventListener("keydown", async (event) => {
     //   console.log(acquiredWeatherData.days[0].datetime);
     // }, 4000);
 
-    //updateWeatherDisplay(acquiredWeatherData);
+    updateWeatherDisplay(acquiredWeatherData);
   }
 });

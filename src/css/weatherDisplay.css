@@ -13,6 +13,19 @@ dialog {
   background-image: url(../assets/icons/homepageBackground.avif);
   height: 70vh;
   width: 100%;
+  color: black;
+}
+
+#toggle-sign {
+  width: 75px;
+  height: 75px;
+  outline: 3px solid black;
+  border-radius: 1.4rem;
+}
+
+#toggle-sign:hover {
+  cursor: pointer;
+  outline: 3px solid white;
 }
 
 #weather-webpage-wrapper {
@@ -29,10 +42,35 @@ dialog {
   padding-top: 32px;
 }
 
-#weather-task-form,
-.searchBar {
+/*
+
+  // WEATHER PAGE SEARCH BAR
+
+*/
+
+.weather-search-form {
   width: auto;
   height: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.weather-search-input {
+  width: 525px;
+  height: 75px;
+
+  border-radius: 2.5rem;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  padding: 0rem 2rem;
+
+  font-size: 2rem;
+
+  background-image: url(../assets/icons/homepageBackground.avif);
 }
 
 #weather-display-wrapper {
@@ -107,8 +145,8 @@ dialog {
 }
 
 #current-date-weather-icon {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 #weather-body-right {
@@ -142,6 +180,14 @@ dialog {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  font-family: "Charis SIL", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.min-temp {
+  color: white;
 }
 
 .weather-icon {
