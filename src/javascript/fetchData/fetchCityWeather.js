@@ -20,10 +20,14 @@ async function fetchWeatherData(city) {
     const response = await fetch(
       `${url}?unitGroup=metric&key=${apiKey}&contentType=json`,
     );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
     const weatherData = await response.json();
     return weatherData;
   } catch (error) {
-    console.error(error);
+    console.log("Failed to fetch weather data:", error);
   }
 }
 
@@ -39,7 +43,10 @@ weatherLocationInput.addEventListener("keydown", async (event) => {
     //   console.log(acquiredWeatherData.address);
     //   console.log(acquiredWeatherData.days[0].datetime);
     // }, 4000);
-
-    updateWeatherDisplay(acquiredWeatherData, fetchWeatherData);
+    if (acquiredWeatherData == undefined || acquiredWeatherData == null) {
+      weatherLocationInput.style.placeholder = "Invalid Search!";
+    } else {
+      updateWeatherDisplay(acquiredWeatherData, fetchWeatherData, "celsius");
+    }
   }
 });

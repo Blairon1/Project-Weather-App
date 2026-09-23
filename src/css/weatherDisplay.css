@@ -113,6 +113,7 @@ dialog {
   font-family: "Carter One", system-ui;
   font-weight: 400;
   font-style: normal;
+  color: white;
 }
 
 #daily-weather-section {

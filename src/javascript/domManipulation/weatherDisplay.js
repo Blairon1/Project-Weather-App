@@ -1,6 +1,9 @@
 // References
 const homePage = document.querySelector(".home-page");
 
+// State
+let currentMeasurement = "celsius";
+
 // Implementation
 
 function getWeatherIcon(dayConditions) {
@@ -47,9 +50,11 @@ function getWeatherIcon(dayConditions) {
   }
 }
 
-function toggleTemperatureScales() {}
-
-export function updateWeatherDisplay(weatherData, fetchWeatherData) {
+export function updateWeatherDisplay(
+  weatherData,
+  fetchWeatherData,
+  measurement,
+) {
   homePage.replaceChildren();
 
   const weatherWebpageWrapper = document.createElement("div");
@@ -65,13 +70,16 @@ export function updateWeatherDisplay(weatherData, fetchWeatherData) {
   const weatherSearchInput = document.createElement("input");
   weatherSearchInput.className = "weather-search-input";
   weatherSearchInput.type = "text";
-  weatherSearchInput.placeholder = "Please enter a location...";
+  weatherSearchInput.placeholder = weatherData.address;
   weatherSearchInput.minLength = "1";
   weatherSearchInput.maxLength = "169";
   weatherSearchInput.required = true;
 
   const toggleSign = document.createElement("img");
-  toggleSign.src = "assets/icons/temperature-celsius.svg";
+  toggleSign.src =
+    measurement == "celsius"
+      ? "assets/icons/temperature-celsius.svg"
+      : "assets/icons/temperature-fahrenheit.svg";
   toggleSign.alt = "";
   toggleSign.id = "toggle-sign";
 
@@ -121,7 +129,10 @@ export function updateWeatherDisplay(weatherData, fetchWeatherData) {
 
   const currentTemperature = document.createElement("p");
   currentTemperature.id = "current-date-temperature";
-  currentTemperature.textContent = `${weatherData.currentConditions?.temp ?? 25}°C`;
+  currentTemperature.textContent =
+    measurement == "celsius"
+      ? `${weatherData.currentConditions.temp}°C`
+      : ` ${(weatherData.currentConditions.temp * (9 / 5) + 32).toFixed(2)}°F`;
 
   weatherBodyLeft.append(weatherDescription, currentTemperature);
   weatherDisplayLeft.append(
@@ -129,6 +140,8 @@ export function updateWeatherDisplay(weatherData, fetchWeatherData) {
     weatherIconContainer,
     weatherBodyLeft,
   );
+
+  //	(0°C × 9/5) + 32 = 32°F
 
   // Right side
   const weatherDisplayRight = document.createElement("div");
@@ -189,44 +202,72 @@ export function updateWeatherDisplay(weatherData, fetchWeatherData) {
     [
       getWeatherIcon(weatherData.days[0].icon),
       `${weatherData.days[0].datetime}`,
-      `${weatherData.days[0].tempmin}°C`,
-      `${weatherData.days[0].tempmax}°C`,
+      measurement == "celsius"
+        ? `${weatherData.days[0].tempmin}°C`
+        : ` ${(weatherData.days[0].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+      measurement == "celsius"
+        ? `${weatherData.days[0].tempmax}°C`
+        : ` ${(weatherData.days[0].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[1].icon),
       `${weatherData.days[1].datetime}`,
-      `${weatherData.days[1].tempmin}°C`,
-      `${weatherData.days[1].tempmax}°C`,
+      measurement == "celsius"
+        ? `${weatherData.days[1].tempmin}°C`
+        : ` ${(weatherData.days[1].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+      measurement == "celsius"
+        ? `${weatherData.days[1].tempmax}°C`
+        : ` ${(weatherData.days[1].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[2].icon),
       `${weatherData.days[2].datetime}`,
-      `${weatherData.days[2].tempmin}°C`,
-      `${weatherData.days[2].tempmax}°C`,
+      measurement == "celsius"
+        ? `${weatherData.days[2].tempmin}°C`
+        : ` ${(weatherData.days[2].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+      measurement == "celsius"
+        ? `${weatherData.days[2].tempmax}°C`
+        : ` ${(weatherData.days[2].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[3].icon),
       `${weatherData.days[3].datetime}`,
-      `${weatherData.days[3].tempmin}°C`,
-      `${weatherData.days[3].tempmax}°C`,
+      measurement == "celsius"
+        ? `${weatherData.days[3].tempmin}°C`
+        : ` ${(weatherData.days[3].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+      measurement == "celsius"
+        ? `${weatherData.days[3].tempmax}°C`
+        : ` ${(weatherData.days[3].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[4].icon),
       `${weatherData.days[4].datetime}`,
-      `${weatherData.days[4].tempmin}°C`,
-      `${weatherData.days[4].tempmax}°C`,
+      measurement == "celsius"
+        ? `${weatherData.days[4].tempmin}°C`
+        : ` ${(weatherData.days[4].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+      measurement == "celsius"
+        ? `${weatherData.days[4].tempmax}°C`
+        : ` ${(weatherData.days[4].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[5].icon),
       `${weatherData.days[5].datetime}`,
-      `${weatherData.days[5].tempmin}°C`,
-      `${weatherData.days[5].tempmax}°C`,
+      measurement == "celsius"
+        ? `${weatherData.days[5].tempmin}°C`
+        : ` ${(weatherData.days[5].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+      measurement == "celsius"
+        ? `${weatherData.days[5].tempmax}°C`
+        : ` ${(weatherData.days[5].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[6].icon),
       `${weatherData.days[6].datetime}`,
-      `${weatherData.days[6].tempmin}°C`,
-      `${weatherData.days[6].tempmax}°C`,
+      measurement == "celsius"
+        ? `${weatherData.days[6].tempmin}°C`
+        : ` ${(weatherData.days[6].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+      measurement == "celsius"
+        ? `${weatherData.days[6].tempmax}°C`
+        : ` ${(weatherData.days[6].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
     ],
   ];
 
@@ -276,7 +317,21 @@ export function updateWeatherDisplay(weatherData, fetchWeatherData) {
 
     if (city.length > 0) {
       const newWeatherData = await fetchWeatherData(city);
-      updateWeatherDisplay(newWeatherData, fetchWeatherData);
+      if (newWeatherData == undefined || newWeatherData == null) {
+        weatherSearchForm.style.placeholder = "Invalid Search!";
+      } else {
+        updateWeatherDisplay(newWeatherData, fetchWeatherData, "celsius");
+      }
     }
+  });
+
+  toggleSign.addEventListener("click", () => {
+    if (currentMeasurement == "celsius") {
+      currentMeasurement = "fahrenheit";
+    } else {
+      currentMeasurement = "celsius";
+    }
+
+    updateWeatherDisplay(weatherData, fetchWeatherData, currentMeasurement);
   });
 }
