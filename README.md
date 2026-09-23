@@ -11,14 +11,16 @@ Created a simple weather app that lets you search for any location and see its c
 
 ## Getting Started
 Clone the repo and install dependencies.
-
-git clone https://github.com/OverlordGummyBear/weather-app.git
-cd weather-app
+```
+git clone git@github.com:Blairon1/Project-Weather-App.git
+cd Project-Weather-App
 npm install
+```
 
 Then start the development server:
-
+```
 npm run dev
+```
 
 Open http://localhost:8080 in your browser.
 
