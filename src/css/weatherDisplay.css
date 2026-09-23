@@ -6,14 +6,15 @@
   padding: 0;
 }
 
-:root {
-}
-
 dialog {
   background-image: url(../assets/icons/homepageBackground.avif);
   height: 70vh;
   width: 100%;
   color: black;
+}
+
+p {
+  white-space: nowrap;
 }
 
 #toggle-sign {
@@ -41,12 +42,6 @@ dialog {
 
   padding-top: 32px;
 }
-
-/*
-
-  // WEATHER PAGE SEARCH BAR
-
-*/
 
 .weather-search-form {
   width: auto;
@@ -104,7 +99,6 @@ dialog {
   font-family: "Average Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-
   font-size: 24px;
 }
 
@@ -131,7 +125,6 @@ dialog {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   height: 100px;
 }
 
@@ -202,6 +195,5 @@ dialog {
 #loading-img {
   width: 125px;
   height: 125px;
-
   margin: auto auto;
 }

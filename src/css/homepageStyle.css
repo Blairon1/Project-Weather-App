@@ -6,9 +6,6 @@
   padding: 0;
 }
 
-:root {
-}
-
 body {
   background-image: url(../assets/icons/homepageBackground.avif);
   width: 100%;
@@ -17,12 +14,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.home-page-wrapper {
-}
-
-.home-page {
+  min-width: min-content;
+  overflow: auto;
 }
 
 #weather-task-form {
