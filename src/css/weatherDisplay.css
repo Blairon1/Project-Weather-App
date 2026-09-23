@@ -198,3 +198,10 @@ dialog {
   height: 75px;
   display: block;
 }
+
+#loading-img {
+  width: 125px;
+  height: 125px;
+
+  margin: auto auto;
+}

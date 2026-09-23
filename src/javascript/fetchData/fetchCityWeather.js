@@ -1,4 +1,5 @@
 import { updateWeatherDisplay } from "../domManipulation/weatherDisplay.js";
+import loadingComponent from "../miscMethods/loadingComponent.js";
 
 /*
 // References 
@@ -39,14 +40,14 @@ weatherLocationInput.addEventListener("keydown", async (event) => {
     console.log("Enter key pressed! Current value:", event.target.value);
     const acquiredWeatherData = await fetchWeatherData(event.target.value);
     console.log(acquiredWeatherData);
-    // setTimeout(() => {
-    //   console.log(acquiredWeatherData.address);
-    //   console.log(acquiredWeatherData.days[0].datetime);
-    // }, 4000);
+
     if (acquiredWeatherData == undefined || acquiredWeatherData == null) {
       weatherLocationInput.style.placeholder = "Invalid Search!";
     } else {
-      updateWeatherDisplay(acquiredWeatherData, fetchWeatherData, "celsius");
+      setTimeout(() => {
+        updateWeatherDisplay(acquiredWeatherData, fetchWeatherData, "celsius");
+      }, 320);
+      loadingComponent();
     }
   }
 });

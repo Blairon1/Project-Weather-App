@@ -1,3 +1,6 @@
+import loadingComponent from "../miscMethods/loadingComponent.js";
+import { parseISO, format } from "date-fns";
+
 // References
 const homePage = document.querySelector(".home-page");
 
@@ -100,7 +103,8 @@ export function updateWeatherDisplay(
   const currentDateLeft = document.createElement("p");
   currentDateLeft.className = "current-date";
   currentDateLeft.textContent =
-    weatherData.days[0].datetime || "Monday, September 21";
+    format(parseISO(weatherData.days[0].datetime), "EEEE, MMMM d") ||
+    "Monday, September 21";
 
   const cityNameLeft = document.createElement("p");
   cityNameLeft.className = "city-name";
@@ -131,8 +135,8 @@ export function updateWeatherDisplay(
   currentTemperature.id = "current-date-temperature";
   currentTemperature.textContent =
     measurement == "celsius"
-      ? `${weatherData.currentConditions.temp}°C`
-      : ` ${(weatherData.currentConditions.temp * (9 / 5) + 32).toFixed(2)}°F`;
+      ? `${Math.round(weatherData.currentConditions.temp)}°C`
+      : ` ${Math.round(weatherData.currentConditions.temp * (9 / 5) + 32)}°F`;
 
   weatherBodyLeft.append(weatherDescription, currentTemperature);
   weatherDisplayLeft.append(
@@ -140,8 +144,6 @@ export function updateWeatherDisplay(
     weatherIconContainer,
     weatherBodyLeft,
   );
-
-  //	(0°C × 9/5) + 32 = 32°F
 
   // Right side
   const weatherDisplayRight = document.createElement("div");
@@ -153,7 +155,8 @@ export function updateWeatherDisplay(
   const currentDateRight = document.createElement("p");
   currentDateRight.className = "current-date";
   currentDateRight.textContent =
-    weatherData.days[0].datetime || "Monday, September 21";
+    format(parseISO(weatherData.days[0].datetime), "EEEE, MMMM d") ||
+    "Monday, September 21";
 
   const cityNameRight = document.createElement("p");
   cityNameRight.className = "city-name";
@@ -167,7 +170,7 @@ export function updateWeatherDisplay(
 
   const weatherInfo = [
     ["Wind", `${weatherData.days[0].windspeed}m/s`],
-    ["Humidity", `${weatherData.days[0].humidity}%`],
+    ["Humidity", `${Math.round(weatherData.days[0].humidity)}%`],
     ["Sunset", `${weatherData.days[0].sunset}`],
     ["Sunrise", `${weatherData.days[0].sunrise}`],
     [
@@ -201,73 +204,73 @@ export function updateWeatherDisplay(
   const dailyWeather = [
     [
       getWeatherIcon(weatherData.days[0].icon),
-      `${weatherData.days[0].datetime}`,
+      `${format(parseISO(weatherData.days[0].datetime), "E")}`,
       measurement == "celsius"
-        ? `${weatherData.days[0].tempmin}°C`
-        : ` ${(weatherData.days[0].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[0].tempmin)}°C`
+        : ` ${Math.round(weatherData.days[0].tempmin * (9 / 5) + 32)}°F`,
       measurement == "celsius"
-        ? `${weatherData.days[0].tempmax}°C`
-        : ` ${(weatherData.days[0].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[0].tempmax)}°C`
+        : ` ${Math.round(weatherData.days[0].tempmax * (9 / 5) + 32)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[1].icon),
-      `${weatherData.days[1].datetime}`,
+      `${format(parseISO(weatherData.days[1].datetime), "E")}`,
       measurement == "celsius"
-        ? `${weatherData.days[1].tempmin}°C`
-        : ` ${(weatherData.days[1].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[1].tempmin)}°C`
+        : ` ${Math.round(weatherData.days[1].tempmin * (9 / 5) + 32)}°F`,
       measurement == "celsius"
-        ? `${weatherData.days[1].tempmax}°C`
-        : ` ${(weatherData.days[1].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[1].tempmax)}°C`
+        : ` ${Math.round(weatherData.days[1].tempmax * (9 / 5) + 32)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[2].icon),
-      `${weatherData.days[2].datetime}`,
+      `${format(parseISO(weatherData.days[2].datetime), "E")}`,
       measurement == "celsius"
-        ? `${weatherData.days[2].tempmin}°C`
-        : ` ${(weatherData.days[2].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[2].tempmin)}°C`
+        : ` ${Math.round(weatherData.days[2].tempmin * (9 / 5) + 32)}°F`,
       measurement == "celsius"
-        ? `${weatherData.days[2].tempmax}°C`
-        : ` ${(weatherData.days[2].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[2].tempmax)}°C`
+        : ` ${Math.round(weatherData.days[2].tempmax * (9 / 5) + 32)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[3].icon),
-      `${weatherData.days[3].datetime}`,
+      `${format(parseISO(weatherData.days[3].datetime), "E")}`,
       measurement == "celsius"
-        ? `${weatherData.days[3].tempmin}°C`
-        : ` ${(weatherData.days[3].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[3].tempmin)}°C`
+        : ` ${Math.round(weatherData.days[3].tempmin * (9 / 5) + 32)}°F`,
       measurement == "celsius"
-        ? `${weatherData.days[3].tempmax}°C`
-        : ` ${(weatherData.days[3].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[3].tempmax)}°C`
+        : ` ${Math.round(weatherData.days[3].tempmax * (9 / 5) + 32)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[4].icon),
-      `${weatherData.days[4].datetime}`,
+      `${format(parseISO(weatherData.days[4].datetime), "E")}`,
       measurement == "celsius"
-        ? `${weatherData.days[4].tempmin}°C`
-        : ` ${(weatherData.days[4].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[4].tempmin)}°C`
+        : ` ${Math.round(weatherData.days[4].tempmin * (9 / 5) + 32)}°F`,
       measurement == "celsius"
-        ? `${weatherData.days[4].tempmax}°C`
-        : ` ${(weatherData.days[4].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[4].tempmax)}°C`
+        : ` ${Math.round(weatherData.days[4].tempmax * (9 / 5) + 32)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[5].icon),
-      `${weatherData.days[5].datetime}`,
+      `${format(parseISO(weatherData.days[5].datetime), "E")}`,
       measurement == "celsius"
-        ? `${weatherData.days[5].tempmin}°C`
-        : ` ${(weatherData.days[5].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[5].tempmin)}°C`
+        : ` ${Math.round(weatherData.days[5].tempmin * (9 / 5) + 32)}°F`,
       measurement == "celsius"
-        ? `${weatherData.days[5].tempmax}°C`
-        : ` ${(weatherData.days[5].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[5].tempmax)}°C`
+        : ` ${Math.round(weatherData.days[5].tempmax * (9 / 5) + 32)}°F`,
     ],
     [
       getWeatherIcon(weatherData.days[6].icon),
-      `${weatherData.days[6].datetime}`,
+      `${format(parseISO(weatherData.days[6].datetime), "E")}`,
       measurement == "celsius"
-        ? `${weatherData.days[6].tempmin}°C`
-        : ` ${(weatherData.days[6].tempmin * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[6].tempmin)}°C`
+        : ` ${Math.round(weatherData.days[6].tempmin * (9 / 5) + 32)}°F`,
       measurement == "celsius"
-        ? `${weatherData.days[6].tempmax}°C`
-        : ` ${(weatherData.days[6].tempmax * (9 / 5) + 32).toFixed(2)}°F`,
+        ? `${Math.round(weatherData.days[6].tempmax)}°C`
+        : ` ${Math.round(weatherData.days[6].tempmax * (9 / 5) + 32)}°F`,
     ],
   ];
 
@@ -320,7 +323,10 @@ export function updateWeatherDisplay(
       if (newWeatherData == undefined || newWeatherData == null) {
         weatherSearchForm.style.placeholder = "Invalid Search!";
       } else {
-        updateWeatherDisplay(newWeatherData, fetchWeatherData, "celsius");
+        setTimeout(() => {
+          updateWeatherDisplay(newWeatherData, fetchWeatherData, "celsius");
+        }, 320);
+        loadingComponent();
       }
     }
   });
@@ -331,7 +337,6 @@ export function updateWeatherDisplay(
     } else {
       currentMeasurement = "celsius";
     }
-
     updateWeatherDisplay(weatherData, fetchWeatherData, currentMeasurement);
   });
 }
